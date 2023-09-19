@@ -97,7 +97,7 @@ podman tag hello quay.io/jan_holec_ibm/cvut_containers:holecj
 podman push quay.io/jan_holec_ibm/cvut_containers:holecj
 ```
 
-## Kubecl 
+## Kubectl 
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
