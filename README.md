@@ -1,5 +1,8 @@
 
-## Podman init
+## Podman
+
+https://podman.io/docs/installation​
+
 ```bash 
 podman machine init --cpus=4 --memory=4096 -v $HOME:$HOME -v /private/tmp:/private/tmp -v /var/folders/:/var/folders/
 
@@ -88,6 +91,18 @@ podman-compose down
 podman login -u="jan_holec_ibm+cvut_demo" \
   -p="X3RN66EE9AWVCS3KSUIAV5DXGWDB57ZUQX0JQASB29B2UU1S46MR9N0U27132QK7" \
   quay.io
+```
+
+## Skopeo
+
+https://www.mankier.com/1/skopeo
+
+```bash
+
+skopeo inspect docker://quay.io/jan_holec_ibm/cvut_containers:holecj
+
+skopeo list-tags docker://quay.io/jan_holec_ibm/cvut_containers
+
 ```
 
 ```bash 
