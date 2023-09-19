@@ -17,6 +17,5 @@ EXPOSE 5000
 ENV HELLO_STRING="${HELLO_STRING}"
 
 LABEL org.opencontainers.image.authors="${MAINTAINER}"
-# LABEL my.name.is="${MAINTAINER}"
 
 CMD [ "python3", "app.py"]
