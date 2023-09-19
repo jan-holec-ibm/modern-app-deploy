@@ -1,0 +1,15 @@
+version: '3'
+services:
+  hello:
+    build: .
+    image: localhost/hello_hello:latest
+    ports:
+      - "5000:5000"
+    networks:
+      - demonet
+    environment:
+      - HELLO_STR=${HELLO_STR}
+networks:
+  demonet:
+    driver: bridge
+    name: demonet

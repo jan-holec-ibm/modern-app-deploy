@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-cron
+  namespace: default
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello-cron
+            image: "quay.io/jan_holec_ibm/cvut_containers:v1.0"
+            args: ['/bin/sh', '-c', 'date; echo Hello from the Hello cron!']
+          restartPolicy: OnFailure

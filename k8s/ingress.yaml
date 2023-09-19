@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: public-iks-k8s-nginx
+  tls:
+  - hosts:
+    - hello.cvut-demo-cd866d72d91a2bde7ccc4ecb9e4156d4-0000.eu-de.containers.appdomain.cloud
+    - cvut-demo-cd866d72d91a2bde7ccc4ecb9e4156d4-0000.eu-de.containers.appdomain.cloud
+  rules:
+  - host: hello.cvut-demo-cd866d72d91a2bde7ccc4ecb9e4156d4-0000.eu-de.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-service-clusterip
+            port:
+              number: 5000
+  - host: cvut-demo-cd866d72d91a2bde7ccc4ecb9e4156d4-0000.eu-de.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /hello
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-service-clusterip
+            port:
+              number: 5000
